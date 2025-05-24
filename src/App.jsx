@@ -5,6 +5,7 @@ import Skills from './components/Skills/Skills';
 import About from './components/About/About';
 import Footer from './components/Footer/Footer';
 import ParticleBackground from './components/ParticleBackground/ParticleBackground';
+import Projects from './components/Project/Project';
 import './App.css';
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
         <Hero />
         <About />
         <Skills />
+        <Projects />            
         {/* Additional sections can be added here */}
         {/* <Projects /> */}
         {/* <Contact /> */}
