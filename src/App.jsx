@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import Skills from './components/Skills/Skills';
@@ -7,18 +7,8 @@ import ParticleBackground from './components/ParticleBackground/ParticleBackgrou
 import './App.css';
 
 const App = () => {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
-
-  useEffect(() => {
-    document.body.className = theme + '-theme';
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  // Function to be passed to Header to update App's theme state if needed
-  // Or, Header can manage its own theme state and update body class directly
-
   return (
-    <div className={`app ${theme}-theme`}>
+    <div className="app dark-theme">
       <ParticleBackground />
       <Header />
       <main>

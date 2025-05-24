@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
+
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -70,7 +71,7 @@ const Header = () => {
       ></div>
 
       {/* Main Header Bar */}
-      <header className={`header ${scrolled ? 'scrolled' : ''}`}>
+      <header className={`header dark-theme ${scrolled ? 'scrolled' : ''}`}>
         <div className="header-container">
           <div className="logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <div className="logo-bg-effect"></div>
