@@ -1,5 +1,6 @@
 .footer {
   background-color: var(--footer-bg);
+  background: #0f0f23;
   backdrop-filter: blur(10px);
   padding: 2rem 0;
   margin-top: auto;

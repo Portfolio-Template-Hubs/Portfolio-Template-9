@@ -102,6 +102,7 @@ const Hero = () => {
       ref={heroRef}
       className="hero"
       onMouseMove={handleMouseMove}
+      id="home"
     >
       {/* Animated background particles */}
       <div className="particles-container">
