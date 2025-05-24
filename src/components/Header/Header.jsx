@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './Header.css';
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [theme, setTheme] = useState('dark');
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -29,10 +28,6 @@ const Header = () => {
     setSidebarOpen(!sidebarOpen);
   };
 
-  const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
-  };
-
   const handleNavClick = (sectionId) => {
     setActiveSection(sectionId);
     setSidebarOpen(false);
@@ -56,10 +51,8 @@ const Header = () => {
     { platform: 'Discord', icon: '🎮', url: '#', color: 'hover:text-indigo-400' }
   ];
 
-  const themeClass = theme === 'dark' ? 'theme-dark' : 'theme-light';
-
   return (
-    <div className={`header-wrapper ${themeClass}`}>
+    <div className="header-wrapper">
       {/* Animated Background */}
       <div className="animated-bg">
         <div className="gradient-orb orb-1"></div>
@@ -105,19 +98,6 @@ const Header = () => {
               </div>
               <div className="status-glow"></div>
             </div>
-            
-            <button onClick={toggleTheme} className="theme-toggle-btn">
-              <div className="theme-bg"></div>
-              <div className="theme-icon-container">
-                <span className="theme-icon">{theme === 'light' ? '🌙' : '☀️'}</span>
-              </div>
-              <div className="theme-shine"></div>
-              <div className="theme-ripples">
-                {[...Array(3)].map((_, i) => (
-                  <div key={i} className="theme-ripple" style={{'--delay': `${i * 0.2}s`}}></div>
-                ))}
-              </div>
-            </button>
 
             <button onClick={toggleSidebar} className={`sidebar-toggle ${sidebarOpen ? 'active' : ''}`}>
               <div className="hamburger-bg"></div>
