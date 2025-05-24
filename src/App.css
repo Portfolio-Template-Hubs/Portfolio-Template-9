@@ -1,0 +1,179 @@
+/* Global styles */
+:root {
+  /* Light Theme Colors */
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --accent-color: #007bff; /* Similar to primary or a distinct color */
+  --card-bg-color: #f8f9fa;
+  --border-color: #dee2e6;
+  --header-bg: rgba(240, 242, 245, 0.8);
+  --text-color-light: #555555;
+  --text-color-muted: #6c757d;
+  --gradient-start: #e0e7ff;
+  --gradient-end: #c0d0ff;
+
+  /* Dark Theme Colors (will be overridden by .dark-theme) */
+  --dark-bg-color: #0a192f;
+  --dark-text-color: #ccd6f6; /* Lighter text for dark bg */
+  --dark-primary-color: #4db5ff;
+  --dark-secondary-color: #8892b0; /* Lighter secondary for dark bg */
+  --dark-accent-color: #4db5ff;
+  --dark-card-bg-color: #112240; /* Darker card bg */
+  --dark-border-color: #233554; /* Darker border */
+  --dark-header-bg: rgba(10, 25, 47, 0.85); /* Dark header bg */
+  --dark-text-color-light: #a8b2d1;
+  --dark-text-color-muted: #8892b0;
+  --dark-gradient-start: #0a192f;
+  --dark-gradient-end: #112240;
+}
+
+.dark-theme {
+  --bg-color: var(--dark-bg-color);
+  --text-color: var(--dark-text-color);
+  --primary-color: var(--dark-primary-color);
+  --secondary-color: var(--dark-secondary-color);
+  --accent-color: var(--dark-accent-color);
+  --card-bg-color: var(--dark-card-bg-color);
+  --border-color: var(--dark-border-color);
+  --header-bg: var(--dark-header-bg);
+  --text-color-light: var(--dark-text-color-light);
+  --text-color-muted: var(--dark-text-color-muted);
+  --gradient-start: var(--dark-gradient-start);
+  --gradient-end: var(--dark-gradient-end);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Accounts for fixed header */
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* Container styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+/* Section styles */
+section {
+  padding: 100px 0;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Button styles */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--bg-color); /* Text color contrasts with button bg */
+  border: 2px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+  opacity: 0.8; /* Or a slightly different shade for hover */
+}
+
+/* Animation utilities */
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive styles */
+@media screen and (max-width: 992px) {
+  section {
+    padding: 80px 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  section {
+    padding: 60px 0;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  section {
+    padding: 50px 0;
+  }
+  
+  .btn {
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+}
