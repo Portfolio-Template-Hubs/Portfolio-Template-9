@@ -3,6 +3,7 @@ import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import Skills from './components/Skills/Skills';
 import Footer from './components/Footer/Footer';
+import ParticleBackground from './components/ParticleBackground/ParticleBackground';
 import './App.css';
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
 
   return (
     <div className={`app ${theme}-theme`}>
+      <ParticleBackground />
       <Header />
       <main>
         <Hero />
