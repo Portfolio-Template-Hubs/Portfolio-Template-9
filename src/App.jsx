@@ -6,6 +6,7 @@ import About from './components/About/About';
 import Footer from './components/Footer/Footer';
 import ParticleBackground from './components/ParticleBackground/ParticleBackground';
 import Projects from './components/Project/Project';
+import Testimonials from './components/Testimonials/Testimonials';
 import './App.css';
 
 const App = () => {
@@ -17,9 +18,9 @@ const App = () => {
         <Hero />
         <About />
         <Skills />
-        <Projects />            
+        <Projects />
+        <Testimonials />
         {/* Additional sections can be added here */}
-        {/* <Projects /> */}
         {/* <Contact /> */}
       </main>
       <Footer />
