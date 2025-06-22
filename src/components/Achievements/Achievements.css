@@ -1,0 +1,994 @@
+.achievements-section {
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1b3a 50%, #2d1b69 100%);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    perspective: 1000px;
+    --primary-glow: rgb(77, 181, 255);
+    --secondary-glow: rgb(255, 107, 107);
+    --tertiary-glow: rgb(34, 197, 94);
+}
+.achievements-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bg-blur {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.4;
+    transition: transform 0.5s ease;
+}
+
+.bg-blur-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(77, 181, 255, 0.4) 0%, transparent 70%);
+    top: 5%;
+    right: -5%;
+    animation: pulse-slow 8s ease-in-out infinite alternate;
+}
+
+.bg-blur-2 {
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(255, 107, 107, 0.3) 0%, transparent 70%);
+    bottom: 0%;
+    left: 5%;
+    animation: pulse-slow 10s ease-in-out infinite alternate-reverse;
+}
+
+.bg-blur-3 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(34, 197, 94, 0.25) 0%, transparent 70%);
+    top: 40%;
+    left: 30%;
+    animation: pulse-slow 12s ease-in-out infinite alternate;
+}
+
+.achievements-grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.4;
+}
+
+@keyframes pulse-slow {
+    0% {
+        transform: scale(1) translate(0, 0);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1.05) translate(10px, 10px);
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(1) translate(-10px, -10px);
+        opacity: 0.3;
+    }
+}
+.achievements-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.achievement-particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(77, 181, 255, 0.7);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    box-shadow: 0 0 4px 1px rgba(77, 181, 255, 0.3);
+}
+
+.particle-glow {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.5);
+}
+
+.floating-shape {
+    position: absolute;
+    background: linear-gradient(45deg, rgba(77, 181, 255, 0.1), rgba(255, 107, 107, 0.1));
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.achievement-shape-1 {
+    width: 80px;
+    height: 80px;
+    top: 15%;
+    right: 10%;
+    border-radius: 20px;
+}
+
+.achievement-shape-2 {
+    width: 60px;
+    height: 60px;
+    bottom: 15%;
+    left: 5%;
+    border-radius: 50%;
+}
+
+.achievements-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.achievements-content {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    position: relative;
+}
+
+.achievements-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.achievements-header::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary-glow), var(--secondary-glow));
+    border-radius: 2px;
+}
+.section-subtitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary-glow);
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background: rgba(77, 181, 255, 0.1);
+    border-radius: 30px;
+    border: 1px solid rgba(77, 181, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(77, 181, 255, 0.1);
+    backdrop-filter: blur(10px);
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-subtitle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+.section-title {
+    font-size: 52px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 25px;
+    line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    letter-spacing: -0.5px;
+}
+
+.highlight {
+    background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    display: inline-block;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(135deg, rgba(77, 181, 255, 0.2), rgba(255, 107, 107, 0.2));
+    z-index: -1;
+    border-radius: 4px;
+}
+
+.section-description {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #a0acce;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.achievements-timeline {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 80px 0;
+    min-height: 600px;
+}
+
+.timeline-center-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(77, 181, 255, 0.2), rgba(255, 107, 107, 0.2));
+    border-radius: 4px;
+    z-index: 1;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(77, 181, 255, 0.2);
+}
+
+.timeline-progress-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to bottom, var(--primary-glow), var(--secondary-glow));
+    border-radius: 4px;
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(77, 181, 255, 0.5);
+}
+
+.timeline-column {
+    display: flex;
+    flex-direction: column;
+    gap: 100px; /* Increased gap for better vertical distribution */
+    width: 50%;
+    position: relative;
+    z-index: 3;
+}
+
+.left-column {
+    align-items: flex-end;
+    padding-right: 60px;
+}
+
+.right-column {
+    align-items: flex-start;
+    padding-left: 60px;
+    margin-top: 50px; /* Reduced from 120px for better alternating alignment */
+}
+
+.timeline-card {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    background: rgba(26, 27, 58, 0.6);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 40px 28px 28px 28px; /* Increased top padding to make room for the year badge */
+    margin-top: 0; /* Removed top margin as we're using padding instead */
+    cursor: pointer;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+    border-top: 3px solid transparent;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 2;
+    transform-style: preserve-3d;
+    overflow: hidden;
+}
+
+.timeline-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    z-index: 1;
+}
+
+.timeline-card:hover {
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    transform: translateY(-8px);
+}
+
+.timeline-card.hovered {
+    background: rgba(26, 27, 58, 0.8);
+}
+
+.timeline-card.expanded {
+    background: rgba(26, 27, 58, 0.9);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+.card-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    border-radius: 16px;
+    pointer-events: none;
+}
+.timeline-year {
+    position: absolute;
+    top: 10px; /* Changed to positive value to ensure it's fully visible within the card */
+    padding: 8px 20px; /* Maintained padding for visibility */
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 15; /* Further increased z-index */
+    transition: all 0.3s ease;
+    margin-top: 0;
+    transform: translateY(0);
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Added border for more definition */
+    background-image: linear-gradient(to right, rgba(77, 181, 255, 0.9), rgba(255, 107, 107, 0.9)); /* Stronger background */
+}
+
+.left-card .timeline-year {
+    right: 25px; /* Adjusted to ensure it's not at the edge */
+    transform: translateY(0);
+}
+
+.right-card .timeline-year {
+    left: 25px; /* Adjusted to ensure it's not at the edge */
+    transform: translateY(0);
+}
+
+.timeline-content {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+    z-index: 2;
+}
+
+.timeline-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 10px 0 5px;
+    line-height: 1.3;
+    transition: all 0.3s ease;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-card:hover .timeline-title {
+    transform: translateY(-2px);
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    align-self: flex-start;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.badge-icon {
+    margin-right: 4px;
+    font-size: 14px;
+}
+.timeline-description {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #b8c4e0;
+    margin: 0;
+    overflow: hidden;
+    padding: 5px 2px;
+    transition: all 0.4s ease;
+    border-left: 2px solid transparent;
+}
+
+.timeline-card.expanded .timeline-description {
+    border-left: 2px solid rgba(77, 181, 255, 0.4);
+    padding-left: 12px;
+    background: rgba(77, 181, 255, 0.03);
+    border-radius: 0 8px 8px 0;
+}
+
+.learn-more-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--primary-glow);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    padding: 5px 0;
+    position: relative;
+}
+
+.learn-more-link::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--primary-glow);
+    transition: width 0.3s ease;
+}
+
+.learn-more-link:hover {
+    color: #ffffff;
+}
+
+.learn-more-link:hover::after {
+    width: 100%;
+}
+
+.learn-more-link svg {
+    transition: transform 0.3s ease;
+}
+
+.learn-more-link:hover svg {
+    transform: translate(3px, -3px);
+}
+.timeline-icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 3;
+    box-shadow: 
+        0 5px 15px rgba(0, 0, 0, 0.2),
+        0 0 0 6px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.timeline-icon::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+    z-index: -1;
+}
+
+.left-card .timeline-icon {
+    right: -80px;
+}
+
+.right-card .timeline-icon {
+    left: -80px;
+}
+
+.timeline-card.expanded .timeline-icon {
+    transform: scale(1.1);
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.3),
+        0 0 0 8px rgba(255, 255, 255, 0.15);
+}
+
+.connect-line {
+    position: absolute;
+    width: 50px;
+    height: 4px;
+    top: 30px;
+    border-radius: 4px;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.left-card .connect-line {
+    right: -50px;
+    background: linear-gradient(90deg, transparent, rgba(77, 181, 255, 0.5));
+}
+
+.right-card .connect-line {
+    left: -50px;
+    background: linear-gradient(90deg, rgba(77, 181, 255, 0.5), transparent);
+}
+
+.timeline-card.expanded .connect-line {
+    height: 6px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+.achievements-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    margin-top: 60px;
+    position: relative;
+}
+
+.achievements-bottom::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+.achievements-stats {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin-bottom: 30px;
+}
+
+.stat-item {
+    text-align: center;
+    position: relative;
+    padding: 20px;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.stat-number-wrapper {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.stat-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(77, 181, 255, 0.15) 0%, transparent 70%);
+    z-index: -1;
+}
+
+.stat-number {
+    font-size: 42px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.stat-label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #a0acce;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+}
+.cta-container {
+    margin-top: 30px;
+    position: relative;
+}
+
+.cta-container::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--primary-glow), var(--secondary-glow));
+    opacity: 0.5;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 36px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--primary-glow), #2563eb);
+    border: none;
+    box-shadow: 
+        0 8px 20px rgba(77, 181, 255, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.5px;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.cta-button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.2), transparent);
+    z-index: -1;
+}
+
+.cta-button:hover {
+    box-shadow: 
+        0 12px 30px rgba(77, 181, 255, 0.6),
+        0 0 0 2px rgba(255, 255, 255, 0.2) inset;
+    transform: translateY(-5px);
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+.btn-icon {
+    width: 18px;
+    height: 18px;
+}
+
+/* Make sure there's no horizontal overflow on mobile */
+html, body {
+    overflow-x: hidden;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1024px) {
+    .achievements-section {
+        padding: 100px 0;
+    }
+
+    .section-title {
+        font-size: 44px;
+    }
+
+    .timeline-card {
+        max-width: 380px;
+    }
+    
+    .achievements-stats {
+        gap: 60px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .achievements-section {
+        padding: 80px 0; /* Reduced padding for mobile */
+    }
+    
+    .achievements-container {
+        padding: 0 16px; /* Reduced side padding */
+    }
+
+    .section-title {
+        font-size: 34px;
+    }
+
+    .section-description {
+        font-size: 16px;
+        max-width: 100%; /* Full width on mobile */
+    }
+
+    .achievements-timeline {
+        flex-direction: column;
+        margin: 60px 0 40px; /* Adjusted vertical margins */
+    }
+
+    .timeline-center-line {
+        left: 40px; /* Adjusted for better alignment with the timeline icons */
+        width: 5px;
+        transform: none;
+    }
+
+    .timeline-progress-indicator {
+        height: 100% !important; /* Ensure the indicator fills the entire line */
+    }
+
+    .timeline-column {
+        width: 100%;
+        gap: 60px; /* Adjusted gap between cards on mobile */
+    }
+
+    .left-column, .right-column {
+        align-items: flex-start;
+        padding-left: 70px; /* Reduced padding */
+        padding-right: 15px; /* Reduced padding */
+    }
+
+    .right-column {
+        margin-top: 0; /* Reset margin in mobile view for single column layout */
+    }
+
+    /* Year badge positioning for mobile */
+    .left-card .timeline-year, .right-card .timeline-year {
+        top: 8px; /* Consistent positioning for year badges */
+        left: 15px; /* Position on the left for all cards */
+        right: auto;
+        background-image: linear-gradient(to right, rgba(77, 181, 255, 1), rgba(255, 107, 107, 1)); /* Stronger contrast */
+        z-index: 20;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    }
+
+    .timeline-card {
+        padding: 40px 20px 25px; /* Adjusted padding for better year badge visibility */
+        margin-bottom: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        max-width: 100%; /* Full width on mobile */
+    }
+    
+    .left-card .timeline-icon, .right-card .timeline-icon {
+        left: -60px;
+        width: 45px; /* Adjusted size */
+        height: 45px;
+    }
+
+    .left-card .connect-line, .right-card .connect-line {
+        left: -40px;
+        width: 40px;
+        background: linear-gradient(90deg, rgba(77, 181, 255, 0.7), transparent); /* Stronger gradient */
+    }
+
+    .achievements-stats {
+        flex-wrap: wrap;
+        gap: 35px;
+        justify-content: space-around;
+    }
+    
+    /* Reduced hover effect on mobile for better performance */
+    .timeline-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .timeline-card.expanded {
+        transform: scale(1.01); /* Subtler scale effect on mobile */
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+    }
+    
+    /* Better touch targets for mobile */
+    .learn-more-link {
+        padding: 8px 0;
+        margin-top: 5px;
+    }
+    
+    .badge {
+        padding: 6px 12px;
+    }
+    
+    /* Ensure CTA button is properly sized */
+    .cta-button {
+        padding: 16px 28px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .achievements-section {
+        padding: 60px 0; /* Further reduced padding for small screens */
+    }
+
+    .achievements-container {
+        padding: 0 12px; /* Further reduced side padding */
+    }
+    
+    .section-subtitle {
+        font-size: 13px;
+        padding: 7px 14px;
+    }
+    
+    .section-title {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+    
+    .section-description {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+    
+    /* Timeline and year badge adjustments */
+    .timeline-center-line {
+        left: 35px; /* Further adjusted for very small screens */
+    }
+    
+    .left-column, .right-column {
+        padding-left: 60px; /* Reduced padding for small screens */
+        padding-right: 10px;
+        gap: 40px; /* Further reduced gap for small screens */
+    }
+    
+    .left-card .timeline-year, .right-card .timeline-year {
+        top: 10px;
+        left: 10px;
+        padding: 5px 12px; /* Smaller padding */
+        font-size: 13px; /* Smaller font */
+        border-width: 1px; /* Thinner border */
+    }
+    
+    .timeline-card {
+        padding: 38px 15px 20px; /* Adjusted padding to accommodate year badge */
+        margin-bottom: 15px;
+        border-radius: 14px; /* Slightly smaller radius */
+    }
+    
+    .timeline-title {
+        font-size: 17px;
+        line-height: 1.3;
+        margin: 8px 0 4px;
+    }
+    
+    .timeline-description {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    .timeline-card.expanded .timeline-description {
+        padding-left: 8px;
+        border-left-width: 1px; /* Thinner border */
+    }
+    
+    .badge {
+        padding: 5px 10px;
+        font-size: 12px;
+        border-radius: 20px;
+    }
+    
+    .learn-more-link {
+        font-size: 13px;
+        padding: 6px 0;
+    }
+    
+    /* Statistics and CTA adjustments */
+    .achievements-stats {
+        flex-direction: column;
+        gap: 25px;
+        margin-bottom: 30px;
+    }
+    
+    .stat-number {
+        font-size: 32px; /* Smaller font size */
+    }
+    
+    .stat-label {
+        font-size: 13px;
+    }
+    
+    .stat-circle {
+        width: 80px; /* Smaller circle */
+        height: 80px;
+    }
+    
+    .cta-button {
+        padding: 14px 24px;
+        font-size: 14px;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+    
+    /* Timeline icons and connection lines */
+    .timeline-icon {
+        width: 36px; /* Even smaller icons */
+        height: 36px;
+        font-size: 16px;
+    }
+    
+    .left-card .timeline-icon, .right-card .timeline-icon {
+        left: -50px;
+    }
+    
+    .left-card .connect-line, .right-card .connect-line {
+        left: -35px;
+        width: 35px;
+        height: 3px; /* Thinner line */
+    }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 360px) {
+    .section-title {
+        font-size: 26px;
+    }
+    
+    .timeline-center-line {
+        left: 30px;
+    }
+    
+    .left-column, .right-column {
+        padding-left: 50px;
+        padding-right: 5px;
+    }
+    
+    .left-card .timeline-icon, .right-card .timeline-icon {
+        left: -45px;
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+    
+    .left-card .connect-line, .right-card .connect-line {
+        left: -30px;
+        width: 30px;
+    }
+    
+    .left-card .timeline-year, .right-card .timeline-year {
+        font-size: 12px;
+        padding: 4px 10px;
+    }
+    
+    .timeline-card {
+        padding: 35px 12px 18px;
+    }
+    
+    .timeline-title {
+        font-size: 16px;
+    }
+    
+    .cta-button {
+        width: 100%; /* Full width on very small screens */
+        padding: 12px 20px;
+    }
+}
