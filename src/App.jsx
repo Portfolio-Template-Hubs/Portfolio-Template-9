@@ -8,6 +8,7 @@ import ParticleBackground from './components/ParticleBackground/ParticleBackgrou
 import Projects from './components/Project/Project';
 import Testimonials from './components/Testimonials/Testimonials';
 import Achievements from './components/Achievements/Achievements';
+import Contact from './components/Contact/Contact';
 import './App.css';
 
 const App = () => {
@@ -22,8 +23,7 @@ const App = () => {
         <Projects />
         <Testimonials />
         <Achievements />
-        {/* Additional sections can be added here */}
-        {/* <Contact /> */}
+        <Contact />
       </main>
       <Footer />
     </div>

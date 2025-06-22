@@ -39,8 +39,8 @@ const Header = () => {
     { id: 'about', label: 'About', icon: '👨‍💻', gradient: 'from-green-500 to-teal-600' },
     { id: 'skills', label: 'Skills', icon: '⚡', gradient: 'from-yellow-500 to-orange-600' },
     { id: 'projects', label: 'Projects', icon: '🚀', gradient: 'from-pink-500 to-rose-600' },
-    { id: 'experience', label: 'Experience', icon: '💼', gradient: 'from-indigo-500 to-purple-600' },
-    { id: 'blog', label: 'Blog', icon: '📝', gradient: 'from-cyan-500 to-blue-600' },
+    { id: 'testimonials', label: 'Testimonials', icon: '💬', gradient: 'from-indigo-500 to-purple-600' },
+    { id: 'achievements', label: 'Achievements', icon: '🏆', gradient: 'from-cyan-500 to-blue-600' },
     { id: 'contact', label: 'Contact', icon: '📧', gradient: 'from-emerald-500 to-green-600' }
   ];
 
