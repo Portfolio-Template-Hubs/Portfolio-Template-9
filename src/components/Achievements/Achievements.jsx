@@ -227,7 +227,15 @@ const Achievements = () => {
 
   // Function to handle card click
   const handleCardClick = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
+    // Toggle the active index with a short delay to allow animations to complete
+    if (activeIndex === index) {
+      // If already active, add a small delay before closing to ensure animations complete
+      setTimeout(() => {
+        setActiveIndex(null);
+      }, 50);
+    } else {
+      setActiveIndex(index);
+    }
     
     // Scroll to timeline section when mobile view and card is clicked
     if (window.innerWidth <= 768) {
@@ -354,7 +362,7 @@ const Achievements = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              Professional <span className="highlight">Achievements</span>
+              Professional <span className="highlight1">Achievements</span>
             </motion.h2>
             <motion.p 
               className="section-description"
@@ -446,29 +454,35 @@ const Achievements = () => {
                         {achievement.category}
                       </motion.div>
                       
-                      <AnimatePresence>
+                      <AnimatePresence mode="wait">
                         {isActive && (
                           <motion.p 
                             className="timeline-description"
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: 'auto', opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.4, ease: "easeInOut" }}
+                            initial={{ maxHeight: 0, opacity: 0, overflow: "hidden" }}
+                            animate={{ maxHeight: 500, opacity: 1, overflow: "visible" }}
+                            exit={{ maxHeight: 0, opacity: 0, overflow: "hidden" }}
+                            transition={{ 
+                              maxHeight: { duration: 0.3, ease: "easeOut" },
+                              opacity: { duration: 0.2, ease: "easeOut" }
+                            }}
                           >
                             {achievement.description}
                           </motion.p>
                         )}
                       </AnimatePresence>
                       
-                      <AnimatePresence>
+                      <AnimatePresence mode="wait">
                         {isActive && (
                           <motion.a 
                             href={achievement.link} 
                             className="learn-more-link"
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: 'auto', opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.4, delay: 0.1 }}
+                            initial={{ maxHeight: 0, opacity: 0, overflow: "hidden" }}
+                            animate={{ maxHeight: 50, opacity: 1, overflow: "visible" }}
+                            exit={{ maxHeight: 0, opacity: 0, overflow: "hidden" }}
+                            transition={{ 
+                              maxHeight: { duration: 0.3, ease: "easeOut" },
+                              opacity: { duration: 0.2, delay: 0.1, ease: "easeOut" }
+                            }}
                             whileHover={{ x: 3 }}
                           >
                             Learn more
@@ -574,29 +588,35 @@ const Achievements = () => {
                         {achievement.category}
                       </motion.div>
                       
-                      <AnimatePresence>
+                      <AnimatePresence mode="wait">
                         {isActive && (
                           <motion.p 
                             className="timeline-description"
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: 'auto', opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.4, ease: "easeInOut" }}
+                            initial={{ maxHeight: 0, opacity: 0, overflow: "hidden" }}
+                            animate={{ maxHeight: 500, opacity: 1, overflow: "visible" }}
+                            exit={{ maxHeight: 0, opacity: 0, overflow: "hidden" }}
+                            transition={{ 
+                              maxHeight: { duration: 0.3, ease: "easeOut" },
+                              opacity: { duration: 0.2, ease: "easeOut" }
+                            }}
                           >
                             {achievement.description}
                           </motion.p>
                         )}
                       </AnimatePresence>
                       
-                      <AnimatePresence>
+                      <AnimatePresence mode="wait">
                         {isActive && (
                           <motion.a 
                             href={achievement.link} 
                             className="learn-more-link"
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: 'auto', opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.4, delay: 0.1 }}
+                            initial={{ maxHeight: 0, opacity: 0, overflow: "hidden" }}
+                            animate={{ maxHeight: 50, opacity: 1, overflow: "visible" }}
+                            exit={{ maxHeight: 0, opacity: 0, overflow: "hidden" }}
+                            transition={{ 
+                              maxHeight: { duration: 0.3, ease: "easeOut" },
+                              opacity: { duration: 0.2, delay: 0.1, ease: "easeOut" }
+                            }}
                             whileHover={{ x: 3 }}
                           >
                             Learn more

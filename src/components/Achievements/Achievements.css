@@ -206,7 +206,7 @@
     letter-spacing: -0.5px;
 }
 
-.highlight {
+.highlight1 {
     background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -421,10 +421,10 @@
     line-height: 1.7;
     color: #b8c4e0;
     margin: 0;
-    overflow: hidden;
     padding: 5px 2px;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
     border-left: 2px solid transparent;
+    will-change: opacity, max-height;
 }
 
 .timeline-card.expanded .timeline-description {
@@ -443,9 +443,9 @@
     font-weight: 600;
     text-decoration: none;
     transition: all 0.3s ease;
-    overflow: hidden;
     padding: 5px 0;
     position: relative;
+    will-change: opacity, max-height, transform;
 }
 
 .learn-more-link::after {
